@@ -1,8 +1,11 @@
 # Embedded-System-2024
+# 심화과정
 IoT 시스템개발자 심화 임베디드 시스템 학습 리포지토리
 
 ## 1일차
 - 개발환경 설치
+	- Visual Studio 2022 Community 설치
+	- C, C++ 소스코드 실행
 
 
 ## 2일차

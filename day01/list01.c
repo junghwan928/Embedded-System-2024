@@ -22,7 +22,7 @@ void main() {
     node1->next = NULL;
 
     // node2 초기화
-    node2->data = 12;
+    node2->data = node1->data; // node1의 data 멤버 값을 node2의 data 멤버로 복사
     node2->next = NULL;
 
     // node1의 다음 노드로 node2를 지정

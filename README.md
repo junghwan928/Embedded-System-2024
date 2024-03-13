@@ -21,6 +21,10 @@ IoT 시스템개발자 심화 임베디드 시스템 학습 리포지토리
 - cd / pwd / mkdir etc...
 - ls = -a, -l, /etc
 - nanorc => nano /etc/nanorc
+- gcc -o test01 test01.c => ./test01
+- gcc test01.c => ./a.out
+
+- 리눅스 명령어 (https://m.hanbit.co.kr/channel/category/category_view.html?cms_code=CMS6390061632)
 
 ## 3일차
 

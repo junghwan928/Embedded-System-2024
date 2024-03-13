@@ -1,6 +1,6 @@
 # Embedded-System-2024
 # 심화과정
-IoT 시스템개발자 심화 임베디드 시스템 학습 리포지토리
+IoT 시스템개발자 심화 임베디드 시스템 학습 리포지토리 = 라즈베리 파일에 다 넣어 놓음
 
 ## 1일차
 - 개발환경 설치
@@ -25,6 +25,11 @@ IoT 시스템개발자 심화 임베디드 시스템 학습 리포지토리
 - gcc test01.c => ./a.out
 
 - 리눅스 명령어 (https://m.hanbit.co.kr/channel/category/category_view.html?cms_code=CMS6390061632)
+- enum(열거형)
+- func(함수 정의 -> 함수 호출)
+	- 함수 선언 -> 함수 호출 -> 함수 정의
+- input 선언
+
 
 ## 3일차
 

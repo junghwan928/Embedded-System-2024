@@ -31,9 +31,20 @@ IoT 시스템개발자 심화 임베디드 시스템 학습 리포지토리 = �
 - input 선언
 - C언어로 계산기 만들기
 - node로 이용한 list
+	- freeList
+	- showNode
+	- addNode(전위함수)
+	- appendNode(후위함수)
+	- 연결 리스트의 노드 구조체 정의
+	
+	
 
 
 ## 3일차
+- typedef struct => node *head;
+- headNode createHeadNode
+- freeList
+- malloc 함수
 
 ## 4일차
 

@@ -14,12 +14,28 @@ void bubSort(int *ary, int n) {
     }
 }
 
-void main() {
+void main(void) {
     int ary[] = {9, 4, 8, 15, 3, 7, 2, 1};
     int size = sizeof(ary) / sizeof(ary[0]); // 배열의 크기 계산
     bubSort(ary, size); // 오름차순 정렬 함수 호출
+    
+    // 정렬된 배열 출력
+    printf("Sorted array: ");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", ary[i]);
+    }
+    printf("\n");
 }
 
+/*
+bubSort 함수:
+ 주어진 배열을 오름차순으로 정렬하는 함수입니다. 버블 정렬 알고리즘을 사용합니다. 
+각 반복에서 현재 요소와 다음 요소를 비교하여 정렬합니다.
+
+main 함수:
+ 정렬할 배열을 선언하고 배열의 크기를 계산한 후,
+ bubSort 함수를 호출하여 배열을 오름차순으로 정렬합니다.
+*/
 /*
 bubSort 함수:
  주어진 배열을 오름차순으로 정렬하는 함수입니다. 버블 정렬 알고리즘을 사용합니다. 

@@ -153,7 +153,6 @@ void menu() {
 }
 
 // 프로그램 시작점
-int main() {
+void main() {
     menu(); // 메뉴 호출
-    return 0; // 프로그램 종료
 }

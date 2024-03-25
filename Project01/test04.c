@@ -110,7 +110,7 @@ void printBooks() {
     printf("도서 목록:\n");
     struct Book *current = head;
     while (current != NULL) {
-        printf("%s (%s, %d) - %s\n", current->title, current->author, current->year, current->rented == 0 ? "대여 가능" : "대여 중");
+        printf("제목: %s (저자: %s, 출판년도: %d, 출판가격: %d 원) - %s\n", current->title, current->author, current->year, current->price,  current->rented == 0 ? "대여 가능" : "대여 중");
         current = current->next;
     }
 }

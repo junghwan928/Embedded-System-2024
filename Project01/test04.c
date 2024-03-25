@@ -2,6 +2,16 @@
 #include <stdlib.h>
 #include <string.h>
 
+// 사용자 정보를 담는 구조체
+struct User {
+    char username[50]; // 사용자 이름
+    char password[50]; // 비밀번호
+    struct User *next; // 다음 사용자를 가리키는 포인터
+};
+
+struct User *userList = NULL; // 사용자 목록을 가리키는 전역 변수
+
+
 // 도서 정보를 담는 구조체
 struct Book {
     char title[50];    // 도서 제목
@@ -13,6 +23,45 @@ struct Book {
 };
 
 struct Book *head = NULL; // 도서 목록의 시작을 가리키는 전역 변수
+
+// 회원가입 함수
+void registerUser() {
+    struct User *newUser = (struct User *)malloc(sizeof(struct User)); // 새로운 사용자를 위한 메모리 할당
+    if (newUser == NULL) { // 메모리 할당 실패 시 오류 메시지 출력 후 종료
+         printf("메모리 할당 오류\n");
+         return;
+     }
+
+     printf("사용자 이름: ");
+     scanf("%s", newUser->username);
+     printf("비밀번호: ");
+     scanf("%s", newUser->password);
+
+     newUser->next = userList; // 새로운 사용자를 목록의 맨 앞에 추가
+     userList = newUser;
+     printf("회원가입이 완료되었습니다.\n");
+}
+
+// 로그인 함수
+int login() {
+    char username[50];
+    char password[50];
+    printf("사용자 이름: ");
+    scanf("%s", username);
+    printf("비밀번호: ");
+    scanf("%s", password);
+
+   struct User *current = userList;
+    while (current != NULL) {
+        if (strcmp(current->username, username) == 0 && strcmp(current->password, password) == 0) {
+            printf("로그인 성공!\n");
+            return 1; // 로그인 성공 시 1 반환
+        }
+        current = current->next;
+    }
+    printf("잘못된 사용자 이름 또는 비밀번호입니다.\n");
+    return 0; // 로그인 실패 시 0 반환
+}
 
 // 도서 추가 함수
 void addBook() {
@@ -35,6 +84,8 @@ void addBook() {
     newBook->next = head; // 새로운 도서를 목록의 맨 앞에 추가
     head = newBook;
 }
+
+
 
 // 도서 검색 및 대여 함수
 void searchBook() {
@@ -115,17 +166,17 @@ void printBooks() {
     }
 }
 
-// 메뉴 함수
-void menu() {
+// 메인메뉴 함수
+void mainMenu() {
     int choice;
     do {
-        printf("\n**** 메뉴 ****\n");
-        printf("1 도서구입\n");
-        printf("2 도서검색\n");
-        printf("3 도서반납\n");
-        printf("4 도서삭제\n");
-        printf("5 도서출력\n");
-        printf("0 종료\n");
+        printf("\n----- 도서 관리 메뉴 ----\n");
+        printf("1. 도서구입(등록)\n");
+        printf("2. 도서검색\n");
+        printf("3. 도서반납\n");
+        printf("4. 도서삭제\n");
+        printf("5. 도서출력\n");
+        printf("0. 로그아웃 및 종료\n");
         printf("선택: ");
         scanf("%d", &choice);
 
@@ -146,6 +197,33 @@ void menu() {
                 printBooks();
                 break;
             case 0:
+                printf("로그아웃합니다.\n");
+                return;
+            default:
+                printf("잘못된 선택입니다. 다시 선택해주세요.\n");
+        }
+    } while (choice != 0);
+}
+
+// 메뉴 함수
+void menu() {
+    int choice;
+    do {
+        printf("\n------ 메뉴-----\n");
+        printf("1. 로그인\n");
+        printf("2. 회원가입\n");
+        printf("0. 종료\n");
+        printf("선택: ");
+        scanf("%d", &choice);
+
+        switch (choice) { 
+            case 1: 
+                if (login()) mainMenu();
+                 break;
+            case 2:
+                registerUser();
+                 break;
+            case 0:
                 printf("프로그램을 종료합니다.\n");
                 break;
             default:
@@ -153,6 +231,8 @@ void menu() {
         }
     } while (choice != 0);
 }
+
+
 // 프로그램 시작점
 void main() {
     menu(); // 메뉴 호출

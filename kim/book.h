@@ -10,7 +10,7 @@ typedef struct BOOK {
     struct BOOK* next;
 } book;
 
-book* head;
+extern book* head;
 
 void post_addMenu();
 void printMenu();
@@ -18,4 +18,4 @@ void deleteMenu();
 void searchMenu();
 void rentMenu();
 
-#endif
+#endif /* BOOK_H */
